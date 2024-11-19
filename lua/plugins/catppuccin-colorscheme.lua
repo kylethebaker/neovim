@@ -25,9 +25,9 @@ return {
     },
     color_overrides = {
       all = {
-        base = '#0A0B12',
-        mantle = '#0A0B12',
-        crust = '#2e2b42',
+        base = vim.g.me.colors.bg,
+        mantle = vim.g.me.colors.accent,
+        crust = vim.g.me.colors.accent_darker
       },
     },
     custom_highlights = {},
@@ -38,11 +38,6 @@ return {
       nvimtree = true,
       treesitter = true,
       telescope = true,
-      notify = false,
-      mini = {
-        enabled = true,
-        indentscope_color = "",
-      },
     },
   },
 }

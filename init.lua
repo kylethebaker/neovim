@@ -71,6 +71,28 @@ vim.opt.scrolloff = 10
 -- Use 24bit colors
 vim.opt.termguicolors = true
 
+-- Don't show the splash page
+vim.opt.shortmess = 'I'
+
+-- Disable neovims built-in file browser, since we're using treeview
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-------------------------------------------------------------------------------
+--
+-- Custom Variables
+--
+-------------------------------------------------------------------------------
+
+vim.g.me = {
+  colors = {
+    bg = '#0A0B12',
+    bg_darker='#05060a',
+    accent = '#3c3a51',
+    accent_darker = '#2e2b42',
+  }
+}
+
 -------------------------------------------------------------------------------
 --
 -- Keymappings
