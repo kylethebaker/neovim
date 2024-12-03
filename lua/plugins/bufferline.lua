@@ -4,13 +4,14 @@ return {
   enabled = false,
   dependencies = 'nvim-tree/nvim-web-devicons',
   opts = function()
-    local bufferline = require('bufferline')
+    -- local bufferline = require('bufferline')
 
-    vim.api.nvim_set_hl(0, 'BufferLineFill', { bg = vim.g.me.colors.bg })
-    vim.api.nvim_set_hl(0, 'BufferLineBuffer', { bg = '#00ff00' })
-    vim.api.nvim_set_hl(0, 'BufferLineBufferSelected', { bg = '#ff0000' })
-    vim.api.nvim_set_hl(0, 'BufferLineDevIconDefaultSelected', { bg = '#ff0000' })
-    vim.api.nvim_set_hl(0, 'BufferLineSeparatorSelected', { bg = '#ff0000' })
+    -- vim.api.nvim_set_hl(0, 'BufferLineFill', { bg = vim.g.me.colors.bg_darker })
+    -- vim.api.nvim_set_hl(0, 'BufferLineBuffer', { bg = vim.g.me.colors.bg_darker })
+
+    -- vim.api.nvim_set_hl(0, 'BufferLineBufferSelected', { bg = vim.g.me.colors.accent})
+    -- vim.api.nvim_set_hl(0, 'BufferLineDevIconDefaultSelected', { bg = '#ff0000' })
+    -- vim.api.nvim_set_hl(0, 'BufferLineSeparatorSelected', { bg = '#ff0000' })
 
     -- see `:h bufferline-configuration`
     return {

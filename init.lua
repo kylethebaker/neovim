@@ -72,11 +72,29 @@ vim.opt.scrolloff = 10
 vim.opt.termguicolors = true
 
 -- Don't show the splash page
-vim.opt.shortmess = 'I'
+vim.o.shortmess = vim.o.shortmess .. "I"
 
 -- Disable neovims built-in file browser, since we're using treeview
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+-- Settings for how code diagnostic hover windows are shown
+vim.diagnostic.config({
+  underline = false,
+  signs = true,
+  virtual_text = false,
+  float = {
+    header = '',
+    source = 'if_many',
+    border = nil,
+    focusable = false,
+  },
+  update_in_insert = true,
+  severity_sort = true,
+})
+
+-- Use bash-like tab-completion for commands
+vim.o.wildmode = 'longest,full'
 
 -------------------------------------------------------------------------------
 --
@@ -88,6 +106,7 @@ vim.g.me = {
   colors = {
     bg = '#0A0B12',
     bg_darker='#05060a',
+    bg_lighter='#0d0f1c',
     accent = '#3c3a51',
     accent_darker = '#2e2b42',
   }
@@ -123,10 +142,22 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 -- to close stuff
 vim.keymap.set('n', '<C-c>', '<silent> <C-c>')
 
--- Navigate buffers a little nicer
+-- Navigate buffers and windows little nicer
 vim.keymap.set('n', '<LocalLeader>m', '<cmd>bnext<cr>')
 vim.keymap.set('n', '<LocalLeader>n', '<cmd>bprev<cr>')
-vim.keymap.set('n', '<LocalLeader>q', '<cmd>bd<cr>')
+vim.keymap.set('n', '<LocalLeader>d', '<cmd>bd<cr>')
+vim.keymap.set('n', '<LocalLeader>q', '<cmd>close<cr>')
+vim.keymap.set('n', '<C-w>o', '<cmd>tabe %<cr>')
+vim.keymap.set('n', '<C-w>O', '<cmd>only<cr>')
+vim.keymap.set('n', '<C-w>n', '<cmd>new<cr>')
+
+-- Use bash-like keybindings for command line
+vim.keymap.set('c', '<C-a>', '<Home>')
+vim.keymap.set('c', '<C-e>', '<End>')
+vim.keymap.set('c', '<C-p>', '<Up>')
+vim.keymap.set('c', '<C-n>', '<Down>')
+vim.keymap.set('c', '<C-b>', '<Left>')
+vim.keymap.set('c', '<C-f>', '<Right>')
 
 -------------------------------------------------------------------------------
 --
@@ -143,3 +174,16 @@ require("config.lazy")
 -------------------------------------------------------------------------------
 
 vim.cmd("colorscheme catppuccin")
+
+-------------------------------------------------------------------------------
+--
+-- Commands
+--
+-------------------------------------------------------------------------------
+
+-- Clear the command buffer so it doesn't linger after running a command
+vim.api.nvim_create_autocmd("CmdlineLeave", {
+  callback = function()
+    vim.fn.timer_start(3000, function() print(" ") end)
+  end
+})

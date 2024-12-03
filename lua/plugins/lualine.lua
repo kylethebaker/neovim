@@ -1,24 +1,10 @@
 return {
   'nvim-lualine/lualine.nvim',
-  dependencies = {},
+  dependencies = {'catppuccin/nvim'},
   opts = {
     options = {
       icons_enabled = true,
-      -- theme = function()
-      --   return vim.tbl_deep_extend('force', require('lualine.themes.auto'), {
-      --     inactive = {
-      --       a = {
-      --         bg = vim.g.me.colors.accent_darker,
-      --       },
-      --       b = {
-      --         bg = vim.g.me.colors.accent_darker,
-      --       },
-      --       c = {
-      --         bg = vim.g.me.colors.accent_darker,
-      --       },
-      --     }
-      --   });
-      -- end,
+      --theme = require('lualine.themes.catppuccin'),
       theme = 'auto',
       component_separators = { left = '', right = ''},
       section_separators = { left = '', right = ''},
@@ -45,7 +31,7 @@ return {
       lualine_c = {},
       lualine_x = {'filename'},
       lualine_y = {
-        { 'filetype', icon_only = true, padding = 0 },
+        { 'filetype', icon_only = false, padding = 1 },
       },
       lualine_z = {'location'}
     },
@@ -61,9 +47,9 @@ return {
       lualine_a = {
         {
           'tabs',
-          mode = 2,
+          mode = 1,
           symbols = {
-            modified = '+'
+            modified = '•︎'
           },
 
         }

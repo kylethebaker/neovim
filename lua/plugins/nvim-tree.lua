@@ -6,15 +6,10 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   keys = {
-    { "<Leader>ee", ':NvimTreeToggle<CR>' },
-    { "<Leader>ef", ':NvimTreeFocus<CR>' },
+    { "<Leader>fe", ':NvimTreeToggle<CR>' },
+    { "<Leader>fp", ':NvimTreeFocus<CR>' },
   },
   config = function()
-    vim.cmd([[
-      hi NvimTreeNormal guibg=g:me.colors.bg_darker
-    ]])
-
-    require("nvim-tree").setup {
-    }
+    require("nvim-tree").setup {}
   end,
 }

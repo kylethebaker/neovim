@@ -26,11 +26,13 @@ return {
     color_overrides = {
       all = {
         base = vim.g.me.colors.bg,
-        mantle = vim.g.me.colors.accent,
-        crust = vim.g.me.colors.accent_darker
+        -- mantle = vim.g.me.colors.bg,
+        -- crust = vim.g.me.colors.bg
       },
     },
-    custom_highlights = {},
+    custom_highlights = {
+
+    },
     default_integrations = true,
     integrations = {
       cmp = true,
