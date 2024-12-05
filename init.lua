@@ -38,8 +38,8 @@ vim.opt.signcolumn = 'yes'
 -- Decrease update time
 vim.opt.updatetime = 250
 
--- Decrease mapped sequence wait time
-vim.opt.timeoutlen = 300
+-- How long to wait for keystrokes after leader key is pressed
+vim.opt.timeoutlen = 800
 
 -- Configure how new splits should be opened
 vim.opt.splitright = true
