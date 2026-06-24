@@ -173,7 +173,8 @@ require("config.lazy")
 --
 -------------------------------------------------------------------------------
 
-vim.cmd("colorscheme catppuccin")
+vim.cmd("set background=dark")
+vim.cmd("colorscheme rosebones")
 
 -------------------------------------------------------------------------------
 --
